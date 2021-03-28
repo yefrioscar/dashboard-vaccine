@@ -5,9 +5,9 @@ import clsx from 'clsx'
 import { useRouter } from 'next/router'
 
 export async function getStaticProps (context) {
-  console.log('====================================');
-  console.log(context.params);
-  console.log('====================================');
+  // console.log('====================================');
+  // console.log(context.params);
+  // console.log('====================================');
 
   // Call an external API endpoint to get posts
   const res = await fetch(
@@ -33,9 +33,9 @@ export async function getStaticProps (context) {
 }
 
 export default function Home ({ vaccines, locations }) {
-  console.log('====================================')
-  console.log(locations, locations)
-  console.log('====================================')
+  // console.log('====================================')
+  // console.log(locations, locations)
+  // console.log('====================================')
 
   const [filterer, setFilterer] = useState([])
   const [cursor, setCursor] = useState(0)
