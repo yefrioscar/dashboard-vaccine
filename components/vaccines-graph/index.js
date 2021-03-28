@@ -4,8 +4,8 @@ import 'dayjs/locale/es'
 
 
 dayjs.locale('es')
-defaults.global.defaultFontFamily =
-  'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+defaults.global.defaultFontFamily = "'Noto Sans JP', sans-serif";
+defaults.global.defaultFontSize = 12
 defaults.global.elements.line.borderWidth = 5
 
 const VaccinesGraph = ({ vaccines }) => {
@@ -61,7 +61,8 @@ const VaccinesGraph = ({ vaccines }) => {
         {
           gridLines: {
             display: false,
-            offsetGridLines: false
+            offsetGridLines: false,
+            
           }
         }
       ]

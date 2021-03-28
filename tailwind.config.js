@@ -1,8 +1,10 @@
 const colors = require('tailwindcss/colors')
 
-
 module.exports = {
-  purge: [],
+  purge: {
+    enabled: process.env.NEXT_PUBLIC_PURGE === 'true',
+    content: ['./src/**/*.html', './src/**/*.ts']
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
@@ -17,13 +19,17 @@ module.exports = {
       violet: colors.violet,
       red: colors.rose,
       yellow: colors.amber,
+      emerald: colors.emerald
+    },
+    fontFamily: {
+      body: "'Noto Sans JP', sans-serif",
     }
   },
   variants: {
     extend: {
       borderRadius: ['hover', 'focus'],
       borderWidth: ['hover', 'focus']
-    },
+    }
   },
-  plugins: [],
+  plugins: []
 }

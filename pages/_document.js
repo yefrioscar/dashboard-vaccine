@@ -6,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head />
-        <body className="">
+        <body className="font-body">
           <Main />
           <NextScript />
         </body>

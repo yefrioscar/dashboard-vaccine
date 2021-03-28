@@ -32,22 +32,30 @@ const SearchCountry = ({ locations, handleChangeCountry }) => {
       setCursor(cursor - 1)
     } else if (e.keyCode === 40 && cursor < filterer.length - 1) {
       setCursor(cursor + 1)
-    } else if (e.keyCode === 13) {
+    } else if (e.keyCode === 13 && cursor >= 0) {
       let item = filterer.find((item, index) => index === cursor)
-      console.log(item)
       handleChangeCountry(item)
       setFilterer([])
       setValue(item.location)
     }
   }
 
+  const handleClickItem = indexItem => {
+    console.log('sdfsdf')
+    let item = filterer.find((item, index) => index === indexItem)
+    handleChangeCountry(item)
+    setFilterer([])
+    setValue(item.location)
+  }
+
   return (
-    <div className=''>
+    <div className='relative'>
       <input
         className={clsx(
           'py-3 px-4 rounded-lg placeholder-gray-400 text-gray-900 appearance-none inline-block w-full focus:outline-none border-2 border-gray-300 focus:border-violet-600  ',
           filterer.length > 0 &&
-            'focus:rounded-bl-none focus:rounded-br-none focus:bg-gray-100 focus:border-b-0'
+            'focus:rounded-bl-none focus:rounded-br-none focus:bg-gray-100 focus:border-b-0',
+          isFocus && 'shadow-2xl'
         )}
         type='text'
         value={value}
@@ -55,11 +63,12 @@ const SearchCountry = ({ locations, handleChangeCountry }) => {
         onKeyDown={handleKeyDown}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
+        placeholder='Escribe el nombre del pais'
       />
       {isFocus && (
         <div
           className={clsx(
-            'space-y-4 bg-gray-100 rounded-lg  border-t-0 border-2 rounded-tl-none rounded-tr-none border-violet-600',
+            'space-y-4 bg-gray-100 rounded-lg  border-t-0 border-2 rounded-tl-none rounded-tr-none border-violet-600 absolute w-full shadow-2xl',
             filterer.length > 0 && 'px-2 py-4',
             filterer.length === 0 && 'border-none'
           )}
@@ -71,6 +80,10 @@ const SearchCountry = ({ locations, handleChangeCountry }) => {
                 ' p-2 px-4 flex space-x-4 rounded hover:bg-gray-300',
                 cursor === index && 'bg-gray-300'
               )}
+              onClick={d => {
+                console.log('asdasd');
+                console.log(d)
+              }}
             >
               <div className='w-10 h-auto '>
                 <Flag code={item.iso_code} height='16px' className='rounded' />

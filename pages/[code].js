@@ -7,9 +7,9 @@ import VaccinesGraph from '../components/vaccines-graph'
 function Date({ vaccines, locations }) {
   const router = useRouter()
 
-  console.log('====================================')
-  console.log(vaccines, locations)
-  console.log('====================================')
+  // console.log('====================================')
+  // console.log(vaccines, locations)
+  // console.log('====================================')
 
   const handleChangeCountry = item => {
     console.log(item);
@@ -18,10 +18,23 @@ function Date({ vaccines, locations }) {
 
   return (
     <div className='max-w-screen-lg m-auto mt-10'>
-      <div className=' grid gap-4'>
+      <div className='grid gap-4'>
         <SearchCountry locations={locations} handleChangeCountry={handleChangeCountry} />
+        <div className='grid gap-4 grid-cols-2 h-36'>
+          <div className='bg-violet-100 rounded-lg flex flex-col space-y-4 font-bold p-4'>
+            <div className='space-y-2'>
+              <h4 className='text-sm text-violet-900'>% DE PERSONAS TOTALMENTE VACUNADAS</h4>
+              <p className='text-4xl text-violet-600'>0.5%</p>
+            </div>
+            <div>
+
+            </div>
+          </div>
+          <div className='bg-emerald-100 rounded-lg p-4'>
+
+          </div>
+        </div>
         <VaccinesGraph vaccines={vaccines} />
-        
       </div>
     </div>
   )
@@ -40,10 +53,6 @@ export async function getStaticPaths() {
         params: { code: location.iso_code.toLocaleLowerCase() },
       }
   })
-
-  console.log('====================================');
-  console.log(paths);
-  console.log('====================================');
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.

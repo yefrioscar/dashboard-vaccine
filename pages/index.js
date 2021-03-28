@@ -41,6 +41,12 @@ export default function Home ({ vaccines, locations }) {
   const [cursor, setCursor] = useState(0)
   const [isFocus, setIsFocus] = useState(null)
 
+
+  // Porcenaje total de personas vacunadas
+  // Total de personas vacunadas
+  // porcentaje de dosis por dia
+  // vacunados por 1 millon de personas
+
   const handleChange = val => {
     let value = val.target.value
 
@@ -81,7 +87,7 @@ export default function Home ({ vaccines, locations }) {
             onKeyDown={handleKeyDown}
             onFocus={() => setIsFocus(true)}
             onBlur={() => setIsFocus(false)}
-            onSubmit={() => { console.log('sdfsd'); }}
+
           />
           {isFocus && (
             <div className='space-y-4 bg-gray-200 px-2 py-4 rounded border-2 border-t-0 border-violet-600 rounded-tl-none rounded-tr-none'>
