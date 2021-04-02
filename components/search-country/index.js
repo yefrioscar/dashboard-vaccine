@@ -34,9 +34,11 @@ const SearchCountry = ({ locations, handleChangeCountry }) => {
       setCursor(cursor + 1)
     } else if (e.keyCode === 13 && cursor >= 0) {
       let item = filterer.find((item, index) => index === cursor)
-      handleChangeCountry(item)
-      setFilterer([])
-      setValue(item.location)
+      if(item) {
+        handleChangeCountry(item)
+        setFilterer([])
+        setValue(item.location)
+      }
     }
   }
 
@@ -49,7 +51,7 @@ const SearchCountry = ({ locations, handleChangeCountry }) => {
   }
 
   return (
-    <div className='relative'>
+    <div className='relative z-10'>
       <input
         className={clsx(
           'py-3 px-4 rounded-lg placeholder-gray-400 text-gray-900 appearance-none inline-block w-full focus:outline-none border-2 border-gray-300 focus:border-violet-600  ',
