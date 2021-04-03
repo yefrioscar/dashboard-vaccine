@@ -42,7 +42,7 @@ export default function Home ({ locations }) {
   }
 
   return (
-    <div className='max-w-screen-lg m-auto mt-10'>
+    <div className='max-w-screen-lg lg:mx-auto mt-10 mx-4'>
       <div className='grid gap-4'>
         <SearchCountry
           locations={locations}
