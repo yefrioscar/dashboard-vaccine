@@ -852,6 +852,17 @@ function Date ({ vaccines, locations }) {
           </div>
         </div>
         <VaccinesGraph vaccines={vaccines} />
+
+        {/* <!-- credits --> */}
+
+        <div>
+          <span>
+            All data is from{' '}
+            <a href='https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations' className="text-base font-medium text-gray-500 hover:text-gray-900 underline" target='_blank'>
+              ourworldindata.org
+            </a>
+          </span>
+        </div>
       </div>
     </div>
   )
